@@ -1,0 +1,128 @@
+.s-container{
+    position: relative;
+    margin-top: 25px;
+    perspective: 1000px;
+}
+
+.s-container .swiper{
+    width: 70%;
+    height: 12rem;
+    position: unset;
+}
+
+
+.s-container .swiper-slide{
+    display: flex;
+    border-radius: 10px;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #739072 0%, #4F6F52 100%);
+    transition: transform 0.3s ease;
+}
+
+.s-container .swiper-button-prev{
+    left: 6rem;
+}
+
+.s-container .swiper-button-next{
+    right: 6rem;
+}
+
+
+.s-container .swiper-button-prev, .swiper-button-next{
+    color: black;
+}
+
+.left-s{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.name>:nth-child(2){
+    font-size: 1.4rem;
+    font-weight: 600;
+
+}
+
+.name>:nth-child(2){
+    font-size: 0.7rem;
+}
+
+.left-s>:nth-child(2){
+    font-weight: bold;
+    font-size: 2rem;
+    font-size: 1rem;
+    border-color: #333;
+    color: #333;
+}
+
+
+.left-s>:nth-child(3){
+    font-size: 0.6rem;
+    border: 1px solid var(--black);
+    padding: 5px 10px;
+    width: max-content;
+    border-radius: 15px;
+}
+
+
+.img-product {
+    /* transform: rotate(-20deg) skewX(10deg); */ /* Commented out to remove slant */
+    position:absolute;
+    right: 15px;
+    width: 50%;
+    height: 110%;
+    bottom: -20%;
+    align-items: center;
+    display: flex;
+    border-radius: 15px;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.img-product:hover {
+    transform: rotate(-20deg) skewX(10deg) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+
+.shop-now {
+    background-color: #007bff;
+    color: var(--pink);
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.shop-now:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+@media screen and (max-width: 856px){
+    .s-container .swiper{
+        width: 90%;
+        height: 10rem;
+
+    }
+    .s-container .swiper-button-prev
+    .s-container .swiper-button-next{
+        display: none;
+    }
+}

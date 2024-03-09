@@ -1,0 +1,156 @@
+/* Header.module.css */
+.container {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 1rem;
+}
+
+.logo > img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.logo > span {
+    font-weight: 600;
+}
+
+.right {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    font-weight: 500;
+    list-style: none;
+}
+
+.menu > li:hover {
+    color: #fe956f;
+    cursor: pointer;
+}
+
+.search {
+    width: 7rem;
+    outline: none;
+    height: 30%;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.cart {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.bars {
+    display: none;
+}
+
+.headerContainer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .showHeader {
+    transform: translateY(0);
+  }
+  
+  .hideHeader {
+    transform: translateY(-100%);
+  }
+  
+  .searchContainer {
+    /* Style the container for the search input and icon */
+    position: relative;
+}
+
+
+
+.search {
+    /* Style the search input */
+    width: calc(100% - 3rem); /* Adjust width to fill remaining space minus the width of the icon and some additional padding */
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 2rem 0.5rem 0.5rem; /* Adjust padding to make space for the icon */
+}
+
+
+.searchIcon {
+    /* Style the search icon */
+    position: absolute;
+    top: 50%;
+    right: 0.5rem; /* Adjust distance from right edge */
+    transform: translateY(-50%);
+    width: 1.5rem; /* Adjust size of the icon */
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 856px) {
+    /* Additional styles for smaller screens */
+    .search {
+        display: none; /* Hide search input on smaller screens */
+    }
+}
+
+@media screen and (max-width: 856px) {
+    /* Additional styles for smaller screens */
+    .search {
+        display: none; /* Hide search input on smaller screens */
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .right {
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        z-index: 9999;
+        background: white;
+        color: var(--black);
+        border-radius: 5px;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .menu {
+        flex-direction: column;
+        margin-left: -2rem;
+        display: none;
+    }
+
+    .bars {
+        display: block;
+    }
+
+    .search {
+        display: none;
+    }
+}
