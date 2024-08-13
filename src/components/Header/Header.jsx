@@ -39,8 +39,8 @@ const Header = ({ cartItems }) => {
                         <ul className={css.menuList}>
                             <li onClick={() => navigate("/home")}>Products</li>
                             <li onClick={() => navigate("/contact")}>Contact</li>
-                            <li onClick={() => navigate("/about")}>About Us</li>
-                            <li onClick={() => navigate("/login")}>Login</li>
+                            <li onClick={() => navigate("/cart")}>Cart</li>
+                            <li onClick={() => navigate("/search")}>Search</li>
                             <li onClick={() => navigate("/profile")}>Profile</li>
                         </ul>
                     </div>

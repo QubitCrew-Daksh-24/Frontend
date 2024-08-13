@@ -1,6 +1,5 @@
 // Cart.js - Display added items in the cart
 import React, {useState} from 'react';
-import { ProductsData } from "../../data/products";
 import css from './Cart.module.css';
 
 const Cart = ({ cartItems }) => {

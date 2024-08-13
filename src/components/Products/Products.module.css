@@ -155,4 +155,20 @@
 }
 
 
+/* Button default style */
+.product button {
+    padding: 5px;
+    background-color: #f0f0f0; /* Default background color */
+    color: #000; /* Default text color */
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Button style when product is added to the cart */
+.product button.added {
+    background-color: #45a049; /* Green background for added state */
+    color: white; /* White text color */
+}
 

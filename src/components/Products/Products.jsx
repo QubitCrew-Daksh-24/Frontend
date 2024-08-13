@@ -55,7 +55,6 @@ const Products = ({ cartItems, addToCart, removeFromCart }) => {
 
             <div className={css.products}>
                 <div className={css.filterContainer}>
-                    {/* <label htmlFor="filter" className={css.filterLabel}>Filter by Type:</label> */}
                     <br/>
                     <select id="filter" value={filterType} onChange={handleFilterChange} className={css.filterSelect}>
                         <option value="All">All</option>
@@ -76,7 +75,10 @@ const Products = ({ cartItems, addToCart, removeFromCart }) => {
                             </div>
                             <span>{product.price} $</span>
                             <br />
-                            <button style={{ padding: '5px' }} onClick={() => handleAddToCart(product)}>
+                            <button
+                                className={isProductInCart(product) ? css.added : ''}
+                                onClick={() => handleAddToCart(product)}
+                            >
                                 {isProductInCart(product) ? "Added to Cart" : "Add to Cart"}
                             </button>
                         </div>
