@@ -1,17 +1,30 @@
-// Card.js - Add button to add item to cart
-import React from 'react';
+import React, { useState } from 'react';
 import css from './Card1.module.css';
 
-const Card = ({ title, allergens, ingredients, addToCart }) => {
+const Card1 = ({ title, allergens, ingredients, addToCart }) => {
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    if (!isAdded) {
+      addToCart({ title, allergens, ingredients }); // Pass the entire product object
+      setIsAdded(true);
+    }
+  };
+
   return (
     <div className={css.container}>
-      <h2>{title}</h2>
-      <p>{allergens}</p>
-      <p>{ingredients}</p>
-      {/* Add button to add item to cart */}
-      <button onClick={addToCart}>Add to Cart</button>
+      <h2 className={css.title}>{title}</h2>
+      <p className={css.allergens}>Allergens: {allergens}</p>
+      <p className={css.ingredients}>Ingredients: {ingredients}</p>
+      <button
+        className={isAdded ? css.addedButton : css.addButton}
+        onClick={handleAddToCart}
+        disabled={isAdded}
+      >
+        {isAdded ? 'Product Added to Cart' : 'Add to Cart'}
+      </button>
     </div>
   );
 };
 
-export default Card;
+export default Card1;

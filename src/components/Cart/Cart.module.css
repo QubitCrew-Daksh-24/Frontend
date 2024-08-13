@@ -1,0 +1,42 @@
+/* Cart.module.css */
+.container {
+    padding: 20px;
+}
+
+.cartItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: azure;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.title {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.details {
+    margin: 4px 0;
+}
+
+.price {
+    margin-top: 12px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #007bff; /* Customize color as needed */
+}

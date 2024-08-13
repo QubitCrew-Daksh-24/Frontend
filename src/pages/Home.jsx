@@ -6,13 +6,13 @@ import Products from '../components/Products/Products';
 import Footer from '../components/Footer/Footer';
 import Chatbot from '../components/Chatbot/Chatbot';
 
-const Home = ({addToCart}) => {
+const Home = ({cartItems,addToCart,removeFromCart}) => {
   return (
     <div>
       <Hero />
       <Slider />
       <Card />
-      <Products addToCart={addToCart} />
+      <Products cartItems={cartItems} addToCart={addToCart} removeFromCart = {removeFromCart}/>
       <Footer />
       <Chatbot />
     </div>

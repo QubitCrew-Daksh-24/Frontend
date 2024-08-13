@@ -12,21 +12,28 @@ import './App.css';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
   };
+
+  const removeFromCart = (product) => {
+    setCartItems(cartItems.filter(item => item !== product));
+  }
+
 
   return (
     <Router>
       <Header cartItems={cartItems} />
-      <Routes>
+      <main>
+        <Routes>
         <Route path="/" element={<Questionnaire />} />
-        <Route path="/home" element={<Home addToCart={addToCart}  />} />
+        <Route path="/home" element={<Home cartItems={cartItems} addToCart={addToCart} removeFromCart = {removeFromCart}/>} />
         {/* <Route path="/products" element={<Products addToCart={addToCart} />} /> */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart cartItems={cartItems} />} />
-      </Routes>
+        </Routes>
+      </main>
     </Router>
   );
 }

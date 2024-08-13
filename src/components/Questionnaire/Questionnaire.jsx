@@ -31,8 +31,11 @@ const Questionnaire = () => {
 
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setTimeout(() => setShowQuestion(true), 100);
+      setShowQuestion(false);
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1);
+        setShowQuestion(true);
+      }, 100);
     }
   };
 
@@ -73,7 +76,7 @@ const Questionnaire = () => {
               ) : q.type === 'multiple-select' ? (
                 <div className="multiple-select">
                   {q.options.map((option, optionIndex) => (
-                    <label key={optionIndex} className="chip">
+                    <label key={optionIndex} className={`chip ${answers[q.id]?.includes(option) ? 'selected' : ''}`}>
                       <input
                         type="checkbox"
                         value={option}
@@ -88,6 +91,7 @@ const Questionnaire = () => {
                   type={q.type || "text"}
                   onChange={(e) => handleAnswer(q.id, e.target.value)}
                   placeholder={q.placeholder}
+                  className="input-field"
                 />
               )}
             </div>
@@ -100,10 +104,11 @@ const Questionnaire = () => {
         </div>
       )}
       <div className="button-container">
-        <button className="next-button" onClick={handleNext} disabled={!showQuestion || !answers[questions[currentQuestion].id]}>
-          Next
-        </button>
-        {currentQuestion === questions.length - 1 && (
+        {currentQuestion < questions.length - 1 ? (
+          <button className="next-button" onClick={handleNext} disabled={!showQuestion || !answers[questions[currentQuestion].id]}>
+            Next
+          </button>
+        ) : (
           <button className="next-button" onClick={handleSubmit} disabled={!showQuestion || !answers[questions[currentQuestion].id]}>
             Submit
           </button>
@@ -112,5 +117,5 @@ const Questionnaire = () => {
     </div>
   );
 }
-   
+
 export default Questionnaire;

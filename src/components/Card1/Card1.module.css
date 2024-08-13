@@ -1,35 +1,65 @@
-/* Card.module.css */
+:root {
+  --black: #343434;
+  --added-button-bg: #28a745; /* Green for added */
+  --added-button-hover-bg: #218838; /* Darker green for hover */
+  --add-button-bg: #007bff; /* Blue for add */
+  --add-button-hover-bg: #0056b3; /* Darker blue for hover */
+}
 
 .container {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  .container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    margin-bottom: 8px;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #f9f9f9;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+.allergens,
+.ingredients {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+.addButton,
+.addedButton {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+}
+
+.addButton {
+  background-color: var(--add-button-bg);
+  color: white;
+}
+
+.addButton:hover {
+  background-color: var(--add-button-hover-bg);
+}
+
+.addedButton {
+  background-color: var(--added-button-bg);
+  color: white;
+  cursor: default;
+}
+
+.addedButton:hover {
+  background-color: var(--added-button-hover-bg);
+}

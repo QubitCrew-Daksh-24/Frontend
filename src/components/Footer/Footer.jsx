@@ -1,7 +1,6 @@
 import React from 'react';
 import css from './Footer.module.css';
 import Logo from "../../assets/logo.png";
-
 import {
  InboxIcon,
  PhoneIcon,
@@ -22,48 +21,48 @@ const Footer = () => {
         </div>
         <div className={css.block}>
           <div className={css.detail}>
-            <span>Contact Us</span>
-            <span className={css.pngLine}>
+            <span className={css.title}>Contact Us</span>
+            <div className={css.pngLine}>
               <LocationMarkerIcon className={css.icon} />
-              <span>Sarathy Nagar, Kudrathur -Sriperumbedur, Chennai - TamilNadu - 600037</span>
-            </span>
-            <span className={css.pngLine}>
+              <span>Sarathy Nagar, Kudrathur - Sriperumbedur, Chennai - TamilNadu - 600037</span>
+            </div>
+            <div className={css.pngLine}>
               <PhoneIcon className={css.icon} />
               <a href="tel:123456789">123456789</a>
-            </span>
-            <span className={css.pngLine}>
+            </div>
+            <div className={css.pngLine}>
               <InboxIcon className={css.icon} />
               <a href="mailto:support@NutriNudge.com">support@NutriNudge.com</a>
-            </span>
+            </div>
           </div>
         </div>
         <div className={css.block}>
           <div className={css.detail}>
-            <span>Account</span>
-            <span className={css.pngLine}>
+            <span className={css.title}>Account</span>
+            <div className={css.pngLine}>
               <LoginIcon className={css.icon} />
               <a href="/signin">Sign In</a>
-            </span>
+            </div>
           </div>
         </div>
         <div className={css.block}>
           <div className={css.detail}>
-            <span>Company</span>
-            <span className={css.pngLine}>
+            <span className={css.title}>Company</span>
+            <div className={css.pngLine}>
               <UsersIcon className={css.icon} />
               <a href="/about">
                 <p>About us</p>
               </a>
-            </span>
+            </div>
           </div>
         </div>
         <div className={css.block}>
           <div className={css.detail}>
-            <span>Resources</span>
-            <span className={css.pngLine}>
+            <span className={css.title}>Resources</span>
+            <div className={css.pngLine}>
               <LinkIcon className={css.icon} />
               <a href="/privacy">Safety Privacy & Terms</a>
-            </span>
+            </div>
           </div>
         </div>
       </div>

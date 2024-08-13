@@ -1,4 +1,3 @@
-// Products.js
 import React, { useState, useEffect } from "react";
 import css from "./Products.module.css";
 import Plane from "../../assets/plane.png";
@@ -6,10 +5,11 @@ import { ProductsData } from "../../data/products";
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import axios from 'axios';
 
-const Products = ({ addToCart }) => {
+const Products = ({ cartItems, addToCart, removeFromCart }) => {
     const [parent] = useAutoAnimate();
     const [menuProducts, setMenuProducts] = useState(ProductsData);
     const [recipes, setRecipes] = useState([]);
+    const [filterType, setFilterType] = useState("All");
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -24,13 +24,28 @@ const Products = ({ addToCart }) => {
         fetchRecipes();
     }, []);
 
-    const filter = (type) => {
-        setMenuProducts(ProductsData.filter((product) => product.type === type));
-    }
+    useEffect(() => {
+        if (filterType === "All") {
+            setMenuProducts(ProductsData);
+        } else {
+            setMenuProducts(ProductsData.filter((product) => product.type === filterType));
+        }
+    }, [filterType]);
+
+    const handleFilterChange = (event) => {
+        setFilterType(event.target.value);
+    };
 
     const handleAddToCart = (product) => {
-        addToCart(product);
-        alert("Product added to cart!!!")
+        if (cartItems.includes(product)) {
+            removeFromCart(product);
+        } else {
+            addToCart(product);
+        }
+    };
+
+    const isProductInCart = (product) => {
+        return cartItems.includes(product);
     };
 
     return (
@@ -39,26 +54,31 @@ const Products = ({ addToCart }) => {
             <h1>Our Featured Products and Recipes</h1>
 
             <div className={css.products}>
-                <ul className={css.menu}>
-                    <li onClick={() => setMenuProducts(ProductsData)}>All</li>
-                    <li onClick={() => filter("HEALTHY FOOD ")}>HEALTHY FOOD</li>
-                    <li onClick={() => filter("BEVERAGES")}>BEVERAGES</li>
-                    <li onClick={() => filter("FOOD CARE")}>FOOD CARE</li>
-                </ul>
+                <div className={css.filterContainer}>
+                    {/* <label htmlFor="filter" className={css.filterLabel}>Filter by Type:</label> */}
+                    <br/>
+                    <select id="filter" value={filterType} onChange={handleFilterChange} className={css.filterSelect}>
+                        <option value="All">All</option>
+                        <option value="HEALTHY FOOD ">HEALTHY FOOD</option>
+                        <option value="BEVERAGES">BEVERAGES</option>
+                        <option value="FOOD CARE">FOOD CARE</option>
+                    </select>
+                </div>
 
                 <div className={css.list} ref={parent}>
                     {menuProducts.map((product, index) => (
                         <div className={css.product} key={index}>
-                            <div className="left-s">
-                                <div className="name">
-                                    <span style={{ fontWeight: 'bold', color: 'white'}}>{product.name}</span>
-                                    <span style={{ fontWeight: 'bold', color: 'black'}}>{product.detail}</span>
-                                </div>
-                                <span>{product.price} $</span>
-                                {/* "Add to Cart" button */}
-                                <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-                            </div>
                             <img src={product.img} alt="" className="img-p" />
+
+                            <div className="name">
+                                <span style={{ fontWeight: 'bold', color: 'white' }}>{product.name}</span><br/>
+                                <span style={{ fontWeight: 'bold', color: 'black' }}>{product.detail}</span>
+                            </div>
+                            <span>{product.price} $</span>
+                            <br />
+                            <button style={{ padding: '5px' }} onClick={() => handleAddToCart(product)}>
+                                {isProductInCart(product) ? "Added to Cart" : "Add to Cart"}
+                            </button>
                         </div>
                     ))}
 
@@ -66,11 +86,10 @@ const Products = ({ addToCart }) => {
                         <div className={css.product} key={index}>
                             <div className="left-s">
                                 <div className="name">
-                                    <span style={{ fontWeight: 'bold', color: 'white'}}>{recipe.title}</span>
-                                    <span style={{ fontWeight: 'bold', color: 'black'}}>{recipe.description}</span>
+                                    <span style={{ fontWeight: 'bold', color: 'white' }}>{recipe.title}</span>
+                                    <span style={{ fontWeight: 'bold', color: 'black' }}>{recipe.description}</span>
                                 </div>
                                 <span>{recipe.price} $</span>
-                                {/* Assuming "Show Now" button is for a different action */}
                                 <div style={{ fontWeight: 'bold', color: 'white' }}>Show Now</div>
                             </div>
                             <img src={recipe.image} alt="" className="img-p" />

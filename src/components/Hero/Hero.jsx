@@ -34,10 +34,10 @@ const Hero = () => {
         <span className={css.text1}>Personalise your experience</span>
         <div className={css.text2}>
           <span>Natural Ingredients</span>
-          <span>
+          {/* <span>
             {" "}
             Lorem ipsum whatever the text that your trying to place it right.
-          </span>
+          </span> */}
         </div>
       </div>
 

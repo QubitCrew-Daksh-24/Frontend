@@ -21,15 +21,14 @@ const ChatbotComponent = () => {
 
   return (
     <div>
-      {!isOpen && <button className="button-toggle" onClick={toggleChatbot}>Qually</button>}
+      <button className={`button-toggle ${isOpen ? 'close' : 'open'}`} onClick={toggleChatbot}>
+        {isOpen ? '×' : 'Qually'}
+      </button>
       {isOpen && (
         <div className="copilot-ui">
-          <div className="ui-header">
-            <h2>Copilot Chatbot</h2>
-            <button onClick={toggleChatbot}>Close</button>
-          </div>
           <div className="ui-body">
             <Chatbot
+              className="chatbot-custom"
               config={config}
               actionProvider={ActionProvider}
               messageParser={MessageParser}
