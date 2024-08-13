@@ -1,20 +1,33 @@
-import React from 'react';
+// Cart.js - Display added items in the cart
+import React, {useState} from 'react';
+import { ProductsData } from "../../data/products";
 import css from './Cart.module.css';
 
 const Cart = ({ cartItems }) => {
+    const [cartDisplay, setCartDisplay] = useState(cartItems)
+
     return (
+        <div>
+            <h2>CART</h2>
         <div className={css.container}>
-            <h2>Cart</h2>
-            <div className={css.cartItems}>
-                {cartItems.map((item, index) => (
-                    <div key={index} className={css.card}>
-                        <h3 className={css.title}>{item.name}</h3>
-                        <p className={css.details}>Allergens: {item.allergens}</p>
-                        <p className={css.details}>Ingredients: {item.ingredients}</p>
-                        <p className={css.price}>${item.price}</p>
-                    </div>
-                ))}
-            </div>
+           
+        <div className={css.outer}>
+            {cartDisplay.map((product, index) => (
+                        <div className={css.product} key={index}>
+                            <img src={product.img} alt="" className="img-p" />
+
+                            <div className="name">
+                                <span style={{ fontWeight: 'bold', color: 'white'}}>{product.name}</span>
+                                <br/>
+                                <span style={{ fontWeight: 'bold', color: 'black'}}>{product.detail}</span>
+                            </div>
+                            <span>{product.price} $</span>
+
+                            
+                        </div>
+                    ))}
+        </div>
+        </div>
         </div>
     );
 };

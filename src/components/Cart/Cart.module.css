@@ -1,42 +1,45 @@
-/* Cart.module.css */
 .container {
-    padding: 20px;
-}
-
-.cartItems {
+    padding: 2rem;
+    position: relative;
+    background-color: #d1e2c1;
+    width: 100%;
+    border-radius: 50px;
+    max-width: 1200px; /* Set a max-width to prevent the container from becoming too wide */
+    margin: auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    background-color: azure;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+.outer {
+    display: flex;
+    flex-wrap: wrap; /* Allow the cards to wrap to the next line */
+    gap: 30px;
+    justify-content: center; /* Center the cards horizontally */
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.product {
+    width: 100%;
+    max-width: 200px; /* Limit the max width of the product card */
+    height: auto; /* Make height auto to maintain aspect ratio */
+    background: linear-gradient(135deg, #739072 0%, #4F6F52 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    background-size: cover;
+    background-position: center;
 }
 
-.title {
-    margin-bottom: 8px;
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.details {
-    margin: 4px 0;
-}
-
-.price {
-    margin-top: 12px;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #007bff; /* Customize color as needed */
+.product > img {
+    width: 100%;
+    height: auto; /* Maintain the aspect ratio of the image */
+    object-fit: cover; /* Ensure the image covers the card */
+    transition: all 0.3s ease;
 }
