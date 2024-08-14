@@ -32,10 +32,15 @@
 
 .img-product {
     width: 100%;
+    height: 280px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the entire area, cropping if necessary */
+    border-radius: 0.5rem; /* Optional: to add rounded corners */
+    transition: transform 0.3s ease;
+    /* width: 100%;
     height: auto;
     border-radius: 15px;
     object-fit: cover;
-    transition: transform 0.5s ease, box-shadow 0.3s ease;
+    transition: transform 0.5s ease, box-shadow 0.3s ease; */
 }
 
 .img-product:hover {
